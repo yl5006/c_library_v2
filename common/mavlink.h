@@ -9,6 +9,10 @@
 #define MAVLINK_STX 253
 #endif
 
+#ifndef MAVLINK_STX1
+#define MAVLINK_STX1 125
+#endif
+
 #ifndef MAVLINK_ENDIAN
 #define MAVLINK_ENDIAN MAVLINK_LITTLE_ENDIAN
 #endif
