@@ -30,6 +30,10 @@
 
 #define MAVLINK_MAX_PACKET_LEN (MAVLINK_MAX_PAYLOAD_LEN + MAVLINK_NUM_NON_PAYLOAD_BYTES + MAVLINK_SIGNATURE_BLOCK_LEN) ///< Maximum packet length
 
+#ifndef MAVLINK_STX1
+#define MAVLINK_STX1 125
+#endif
+
 /**
  * Old-style 4 byte param union
  *
