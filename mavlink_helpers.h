@@ -204,7 +204,7 @@ MAVLINK_HELPER uint16_t mavlink_finalize_message_chan(mavlink_message_t* msg, ui
 	uint8_t signature_len = signing? MAVLINK_SIGNATURE_BLOCK_LEN : 0;
 //        uint8_t header_len = MAVLINK_CORE_HEADER_LEN+1;
 	uint8_t	header_len = MAVLINK_CORE_HEADER_LEN+2;    //add one magic1 by yaoling
-	uint8_t buf[MAVLINK_CORE_HEADER_LEN+1];
+	uint8_t buf[MAVLINK_CORE_HEADER_LEN+2];
 	if (mavlink1) {
 		msg->magic = MAVLINK_STX_MAVLINK1;
 		msg->magic1 = MAVLINK_STX1;
