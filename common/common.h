@@ -1,4 +1,4 @@
-/** @file
+﻿/** @file
  *  @brief MAVLink comm protocol generated from common.xml
  *  @see http://mavlink.org
  */
@@ -1122,6 +1122,7 @@ typedef enum GPS_FIX_TYPE
 #include "./mavlink_msg_storage_information.h"
 #include "./mavlink_msg_camera_capture_status.h"
 #include "./mavlink_msg_camera_image_captured.h"
+#include "./mavlink_msg_cammer_rc.h"
 #include "./mavlink_msg_flight_information.h"
 #include "./mavlink_msg_mount_orientation.h"
 #include "./mavlink_msg_logging_data.h"
