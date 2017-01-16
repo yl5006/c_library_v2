@@ -30,8 +30,8 @@ typedef struct __mavlink_cammer_rc_t {
 #define MAVLINK_MSG_ID_181_LEN 36
 #define MAVLINK_MSG_ID_181_MIN_LEN 36
 
-#define MAVLINK_MSG_ID_CAMMER_RC_CRC 118
-#define MAVLINK_MSG_ID_181_CRC 118
+#define MAVLINK_MSG_ID_CAMMER_RC_CRC 100
+#define MAVLINK_MSG_ID_181_CRC 100
 
 
 
