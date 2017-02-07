@@ -1,7 +1,7 @@
 ﻿#pragma once
 // MESSAGE CAMMER_RC PACKING
 
-#define MAVLINK_MSG_ID_CAMMER_RC 181
+#define MAVLINK_MSG_ID_CAMMER_RC 281
 
 MAVPACKED(
 typedef struct __mavlink_cammer_rc_t {
@@ -27,17 +27,17 @@ typedef struct __mavlink_cammer_rc_t {
 
 #define MAVLINK_MSG_ID_CAMMER_RC_LEN 36
 #define MAVLINK_MSG_ID_CAMMER_RC_MIN_LEN 36
-#define MAVLINK_MSG_ID_181_LEN 36
-#define MAVLINK_MSG_ID_181_MIN_LEN 36
+#define MAVLINK_MSG_ID_281_LEN 36
+#define MAVLINK_MSG_ID_281_MIN_LEN 36
 
 #define MAVLINK_MSG_ID_CAMMER_RC_CRC 100
-#define MAVLINK_MSG_ID_181_CRC 100
+#define MAVLINK_MSG_ID_281_CRC 100
 
 
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_CAMMER_RC { \
-    181, \
+    281, \
     "CAMMER_RC", \
     18, \
     {    { "chan1_raw", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_cammer_rc_t, chan1_raw) }, \
