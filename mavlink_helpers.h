@@ -330,7 +330,7 @@ MAVLINK_HELPER void _mav_finalize_message_chan_send(mavlink_channel_t chan, uint
 	    }
             length = _mav_trim_payload(packet, length);
             buf[0] = MAVLINK_STX;
-	    buf[1] = MAVLINK_STX1;
+            buf[1] = MAVLINK_STX1;
             buf[2] = length;
             buf[3] = incompat_flags;
             buf[4] = 0; // compat_flags
@@ -390,7 +390,7 @@ MAVLINK_HELPER void _mavlink_resend_uart(mavlink_channel_t chan, const mavlink_m
             signature_len = 0;
             MAVLINK_START_UART_SEND(chan, header_len + msg->len + 2 + signature_len);
             // we can't send the structure directly as it has extra mavlink2 elements in it
-            uint8_t buf[MAVLINK_CORE_HEADER_MAVLINK1_LEN + 1];
+            uint8_t buf[MAVLINK_CORE_HEADER_MAVLINK1_LEN + 2];
             buf[0] = msg->magic;
     	    buf[1] = msg->magic1;
             buf[2] = msg->len;
@@ -404,9 +404,9 @@ MAVLINK_HELPER void _mavlink_resend_uart(mavlink_channel_t chan, const mavlink_m
             header_len = MAVLINK_CORE_HEADER_LEN + 2;
             signature_len = (msg->incompat_flags & MAVLINK_IFLAG_SIGNED)?MAVLINK_SIGNATURE_BLOCK_LEN:0;
             MAVLINK_START_UART_SEND(chan, header_len + msg->len + 2 + signature_len);
-            uint8_t buf[MAVLINK_CORE_HEADER_LEN + 1];
+            uint8_t buf[MAVLINK_CORE_HEADER_LEN + 2];
             buf[0] = msg->magic;
-	    buf[1] = msg->magic1;
+            buf[1] = msg->magic1;
             buf[2] = msg->len;
             buf[3] = msg->incompat_flags;
             buf[4] = msg->compat_flags;
