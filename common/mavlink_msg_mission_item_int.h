@@ -30,8 +30,8 @@ typedef struct __mavlink_mission_item_int_t {
 #define MAVLINK_MSG_ID_73_LEN 50
 #define MAVLINK_MSG_ID_73_MIN_LEN 49
 
-#define MAVLINK_MSG_ID_MISSION_ITEM_INT_CRC 204
-#define MAVLINK_MSG_ID_73_CRC 204
+#define MAVLINK_MSG_ID_MISSION_ITEM_INT_CRC 38
+#define MAVLINK_MSG_ID_73_CRC 38
 
 
 
