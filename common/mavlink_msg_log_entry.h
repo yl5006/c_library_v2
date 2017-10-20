@@ -10,12 +10,13 @@ typedef struct __mavlink_log_entry_t {
  uint16_t id; /*< Log id*/
  uint16_t num_logs; /*< Total number of logs*/
  uint16_t last_log_num; /*< High log number*/
+ uint8_t log_type; /*< log typer*/
 }) mavlink_log_entry_t;
 
-#define MAVLINK_MSG_ID_LOG_ENTRY_LEN 14
-#define MAVLINK_MSG_ID_LOG_ENTRY_MIN_LEN 14
-#define MAVLINK_MSG_ID_118_LEN 14
-#define MAVLINK_MSG_ID_118_MIN_LEN 14
+#define MAVLINK_MSG_ID_LOG_ENTRY_LEN 15
+#define MAVLINK_MSG_ID_LOG_ENTRY_MIN_LEN 15
+#define MAVLINK_MSG_ID_118_LEN 15
+#define MAVLINK_MSG_ID_118_MIN_LEN 15
 
 #define MAVLINK_MSG_ID_LOG_ENTRY_CRC 56
 #define MAVLINK_MSG_ID_118_CRC 56
@@ -26,8 +27,9 @@ typedef struct __mavlink_log_entry_t {
 #define MAVLINK_MESSAGE_INFO_LOG_ENTRY { \
     118, \
     "LOG_ENTRY", \
-    5, \
-    {  { "id", NULL, MAVLINK_TYPE_UINT16_T, 0, 8, offsetof(mavlink_log_entry_t, id) }, \
+    6, \
+    {  { "log_type", NULL, MAVLINK_TYPE_UINT8_T, 0, 14, offsetof(mavlink_log_entry_t, log_type) }, \
+         { "id", NULL, MAVLINK_TYPE_UINT16_T, 0, 8, offsetof(mavlink_log_entry_t, id) }, \
          { "num_logs", NULL, MAVLINK_TYPE_UINT16_T, 0, 10, offsetof(mavlink_log_entry_t, num_logs) }, \
          { "last_log_num", NULL, MAVLINK_TYPE_UINT16_T, 0, 12, offsetof(mavlink_log_entry_t, last_log_num) }, \
          { "time_utc", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_log_entry_t, time_utc) }, \
@@ -37,8 +39,9 @@ typedef struct __mavlink_log_entry_t {
 #else
 #define MAVLINK_MESSAGE_INFO_LOG_ENTRY { \
     "LOG_ENTRY", \
-    5, \
-    {  { "id", NULL, MAVLINK_TYPE_UINT16_T, 0, 8, offsetof(mavlink_log_entry_t, id) }, \
+    6, \
+    {  { "log_type", NULL, MAVLINK_TYPE_UINT8_T, 0, 14, offsetof(mavlink_log_entry_t, log_type) }, \
+         { "id", NULL, MAVLINK_TYPE_UINT16_T, 0, 8, offsetof(mavlink_log_entry_t, id) }, \
          { "num_logs", NULL, MAVLINK_TYPE_UINT16_T, 0, 10, offsetof(mavlink_log_entry_t, num_logs) }, \
          { "last_log_num", NULL, MAVLINK_TYPE_UINT16_T, 0, 12, offsetof(mavlink_log_entry_t, last_log_num) }, \
          { "time_utc", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_log_entry_t, time_utc) }, \
@@ -53,6 +56,7 @@ typedef struct __mavlink_log_entry_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
+ * @param log_type log typer
  * @param id Log id
  * @param num_logs Total number of logs
  * @param last_log_num High log number
@@ -61,7 +65,7 @@ typedef struct __mavlink_log_entry_t {
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_log_entry_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
-                               uint16_t id, uint16_t num_logs, uint16_t last_log_num, uint32_t time_utc, uint32_t size)
+                               uint8_t log_type, uint16_t id, uint16_t num_logs, uint16_t last_log_num, uint32_t time_utc, uint32_t size)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_LOG_ENTRY_LEN];
@@ -70,6 +74,7 @@ static inline uint16_t mavlink_msg_log_entry_pack(uint8_t system_id, uint8_t com
     _mav_put_uint16_t(buf, 8, id);
     _mav_put_uint16_t(buf, 10, num_logs);
     _mav_put_uint16_t(buf, 12, last_log_num);
+    _mav_put_uint8_t(buf, 14, log_type);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_LOG_ENTRY_LEN);
 #else
@@ -79,6 +84,7 @@ static inline uint16_t mavlink_msg_log_entry_pack(uint8_t system_id, uint8_t com
     packet.id = id;
     packet.num_logs = num_logs;
     packet.last_log_num = last_log_num;
+    packet.log_type = log_type;
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_LOG_ENTRY_LEN);
 #endif
@@ -93,6 +99,7 @@ static inline uint16_t mavlink_msg_log_entry_pack(uint8_t system_id, uint8_t com
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
+ * @param log_type log typer
  * @param id Log id
  * @param num_logs Total number of logs
  * @param last_log_num High log number
@@ -102,7 +109,7 @@ static inline uint16_t mavlink_msg_log_entry_pack(uint8_t system_id, uint8_t com
  */
 static inline uint16_t mavlink_msg_log_entry_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
                                mavlink_message_t* msg,
-                                   uint16_t id,uint16_t num_logs,uint16_t last_log_num,uint32_t time_utc,uint32_t size)
+                                   uint8_t log_type,uint16_t id,uint16_t num_logs,uint16_t last_log_num,uint32_t time_utc,uint32_t size)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_LOG_ENTRY_LEN];
@@ -111,6 +118,7 @@ static inline uint16_t mavlink_msg_log_entry_pack_chan(uint8_t system_id, uint8_
     _mav_put_uint16_t(buf, 8, id);
     _mav_put_uint16_t(buf, 10, num_logs);
     _mav_put_uint16_t(buf, 12, last_log_num);
+    _mav_put_uint8_t(buf, 14, log_type);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_LOG_ENTRY_LEN);
 #else
@@ -120,6 +128,7 @@ static inline uint16_t mavlink_msg_log_entry_pack_chan(uint8_t system_id, uint8_
     packet.id = id;
     packet.num_logs = num_logs;
     packet.last_log_num = last_log_num;
+    packet.log_type = log_type;
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_LOG_ENTRY_LEN);
 #endif
@@ -138,7 +147,7 @@ static inline uint16_t mavlink_msg_log_entry_pack_chan(uint8_t system_id, uint8_
  */
 static inline uint16_t mavlink_msg_log_entry_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_log_entry_t* log_entry)
 {
-    return mavlink_msg_log_entry_pack(system_id, component_id, msg, log_entry->id, log_entry->num_logs, log_entry->last_log_num, log_entry->time_utc, log_entry->size);
+    return mavlink_msg_log_entry_pack(system_id, component_id, msg, log_entry->log_type, log_entry->id, log_entry->num_logs, log_entry->last_log_num, log_entry->time_utc, log_entry->size);
 }
 
 /**
@@ -152,13 +161,14 @@ static inline uint16_t mavlink_msg_log_entry_encode(uint8_t system_id, uint8_t c
  */
 static inline uint16_t mavlink_msg_log_entry_encode_chan(uint8_t system_id, uint8_t component_id, uint8_t chan, mavlink_message_t* msg, const mavlink_log_entry_t* log_entry)
 {
-    return mavlink_msg_log_entry_pack_chan(system_id, component_id, chan, msg, log_entry->id, log_entry->num_logs, log_entry->last_log_num, log_entry->time_utc, log_entry->size);
+    return mavlink_msg_log_entry_pack_chan(system_id, component_id, chan, msg, log_entry->log_type, log_entry->id, log_entry->num_logs, log_entry->last_log_num, log_entry->time_utc, log_entry->size);
 }
 
 /**
  * @brief Send a log_entry message
  * @param chan MAVLink channel to send the message
  *
+ * @param log_type log typer
  * @param id Log id
  * @param num_logs Total number of logs
  * @param last_log_num High log number
@@ -167,7 +177,7 @@ static inline uint16_t mavlink_msg_log_entry_encode_chan(uint8_t system_id, uint
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-static inline void mavlink_msg_log_entry_send(mavlink_channel_t chan, uint16_t id, uint16_t num_logs, uint16_t last_log_num, uint32_t time_utc, uint32_t size)
+static inline void mavlink_msg_log_entry_send(mavlink_channel_t chan, uint8_t log_type, uint16_t id, uint16_t num_logs, uint16_t last_log_num, uint32_t time_utc, uint32_t size)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_LOG_ENTRY_LEN];
@@ -176,6 +186,7 @@ static inline void mavlink_msg_log_entry_send(mavlink_channel_t chan, uint16_t i
     _mav_put_uint16_t(buf, 8, id);
     _mav_put_uint16_t(buf, 10, num_logs);
     _mav_put_uint16_t(buf, 12, last_log_num);
+    _mav_put_uint8_t(buf, 14, log_type);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_LOG_ENTRY, buf, MAVLINK_MSG_ID_LOG_ENTRY_MIN_LEN, MAVLINK_MSG_ID_LOG_ENTRY_LEN, MAVLINK_MSG_ID_LOG_ENTRY_CRC);
 #else
@@ -185,6 +196,7 @@ static inline void mavlink_msg_log_entry_send(mavlink_channel_t chan, uint16_t i
     packet.id = id;
     packet.num_logs = num_logs;
     packet.last_log_num = last_log_num;
+    packet.log_type = log_type;
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_LOG_ENTRY, (const char *)&packet, MAVLINK_MSG_ID_LOG_ENTRY_MIN_LEN, MAVLINK_MSG_ID_LOG_ENTRY_LEN, MAVLINK_MSG_ID_LOG_ENTRY_CRC);
 #endif
@@ -198,7 +210,7 @@ static inline void mavlink_msg_log_entry_send(mavlink_channel_t chan, uint16_t i
 static inline void mavlink_msg_log_entry_send_struct(mavlink_channel_t chan, const mavlink_log_entry_t* log_entry)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-    mavlink_msg_log_entry_send(chan, log_entry->id, log_entry->num_logs, log_entry->last_log_num, log_entry->time_utc, log_entry->size);
+    mavlink_msg_log_entry_send(chan, log_entry->log_type, log_entry->id, log_entry->num_logs, log_entry->last_log_num, log_entry->time_utc, log_entry->size);
 #else
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_LOG_ENTRY, (const char *)log_entry, MAVLINK_MSG_ID_LOG_ENTRY_MIN_LEN, MAVLINK_MSG_ID_LOG_ENTRY_LEN, MAVLINK_MSG_ID_LOG_ENTRY_CRC);
 #endif
@@ -212,7 +224,7 @@ static inline void mavlink_msg_log_entry_send_struct(mavlink_channel_t chan, con
   is usually the receive buffer for the channel, and allows a reply to an
   incoming message with minimum stack space usage.
  */
-static inline void mavlink_msg_log_entry_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint16_t id, uint16_t num_logs, uint16_t last_log_num, uint32_t time_utc, uint32_t size)
+static inline void mavlink_msg_log_entry_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint8_t log_type, uint16_t id, uint16_t num_logs, uint16_t last_log_num, uint32_t time_utc, uint32_t size)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char *buf = (char *)msgbuf;
@@ -221,6 +233,7 @@ static inline void mavlink_msg_log_entry_send_buf(mavlink_message_t *msgbuf, mav
     _mav_put_uint16_t(buf, 8, id);
     _mav_put_uint16_t(buf, 10, num_logs);
     _mav_put_uint16_t(buf, 12, last_log_num);
+    _mav_put_uint8_t(buf, 14, log_type);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_LOG_ENTRY, buf, MAVLINK_MSG_ID_LOG_ENTRY_MIN_LEN, MAVLINK_MSG_ID_LOG_ENTRY_LEN, MAVLINK_MSG_ID_LOG_ENTRY_CRC);
 #else
@@ -230,6 +243,7 @@ static inline void mavlink_msg_log_entry_send_buf(mavlink_message_t *msgbuf, mav
     packet->id = id;
     packet->num_logs = num_logs;
     packet->last_log_num = last_log_num;
+    packet->log_type = log_type;
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_LOG_ENTRY, (const char *)packet, MAVLINK_MSG_ID_LOG_ENTRY_MIN_LEN, MAVLINK_MSG_ID_LOG_ENTRY_LEN, MAVLINK_MSG_ID_LOG_ENTRY_CRC);
 #endif
@@ -240,6 +254,16 @@ static inline void mavlink_msg_log_entry_send_buf(mavlink_message_t *msgbuf, mav
 
 // MESSAGE LOG_ENTRY UNPACKING
 
+
+/**
+ * @brief Get field log_type from log_entry message
+ *
+ * @return log typer
+ */
+static inline uint8_t mavlink_msg_log_entry_get_log_type(const mavlink_message_t* msg)
+{
+    return _MAV_RETURN_uint8_t(msg,  14);
+}
 
 /**
  * @brief Get field id from log_entry message
@@ -305,6 +329,7 @@ static inline void mavlink_msg_log_entry_decode(const mavlink_message_t* msg, ma
     log_entry->id = mavlink_msg_log_entry_get_id(msg);
     log_entry->num_logs = mavlink_msg_log_entry_get_num_logs(msg);
     log_entry->last_log_num = mavlink_msg_log_entry_get_last_log_num(msg);
+    log_entry->log_type = mavlink_msg_log_entry_get_log_type(msg);
 #else
         uint8_t len = msg->len < MAVLINK_MSG_ID_LOG_ENTRY_LEN? msg->len : MAVLINK_MSG_ID_LOG_ENTRY_LEN;
         memset(log_entry, 0, MAVLINK_MSG_ID_LOG_ENTRY_LEN);

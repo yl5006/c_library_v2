@@ -3656,6 +3656,7 @@
     </message>
     <message id="118" name="LOG_ENTRY">
       <description>Reply to LOG_REQUEST_LIST</description>
+      <field type="uint8_t" name="log_type">log typer</field>
       <field type="uint16_t" name="id">Log id</field>
       <field type="uint16_t" name="num_logs">Total number of logs</field>
       <field type="uint16_t" name="last_log_num">High log number</field>
