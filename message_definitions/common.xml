@@ -1123,9 +1123,9 @@
         <param index="2">Waypoint index/ target ID. (see MAV_ROI enum)</param>
         <param index="3">ROI index (allows a vehicle to manage multiple ROI's)</param>
         <param index="4">Empty</param>
-        <param index="5">x the location of the fixed ROI (see MAV_FRAME)</param>
-        <param index="6">y</param>
-        <param index="7">z</param>
+        <param index="5">MAV_ROI_WPNEXT: pitch offset from next waypoint, MAV_ROI_LOCATION: latitude</param>
+        <param index="6">MAV_ROI_WPNEXT: roll offset from next waypoint, MAV_ROI_LOCATION: longitude</param>
+        <param index="7">MAV_ROI_WPNEXT: yaw offset from next waypoint, MAV_ROI_LOCATION: altitude</param>
       </entry>
       <!-- Camera Controller Mission Commands Enumeration -->
       <!-- MAV_CMD_DO_DIGICAM_CONFIGURE should be deprecated and replaced with PARAM_EXT_XXX messages -->
@@ -1853,7 +1853,7 @@
         <description>No region of interest.</description>
       </entry>
       <entry value="1" name="MAV_ROI_WPNEXT">
-        <description>Point toward next waypoint.</description>
+        <description>Point toward next waypoint, with optional pitch/roll/yaw offset.</description>
       </entry>
       <entry value="2" name="MAV_ROI_WPINDEX">
         <description>Point toward given waypoint.</description>
@@ -4439,9 +4439,11 @@
     <message id="330" name="OBSTACLE_DISTANCE">
       <description>Obstacle distances in front of the sensor, starting from the left in increment degrees to the right</description>
       <field type="uint64_t" name="time_usec" units="us">Timestamp (microseconds since system boot or since UNIX epoch)</field>
-      <field type="uint8_t" name="estimator_type" enum="MAV_DISTANCE_SENSOR">Class id of the distance sensor type.</field>
-      <field type="uint8_t[12]" name="distances">Distance of obstacles in front of the sensor starting on the left side. A value of 0 means no obstacle. In a array element, each unit corresponds to 1m.</field>
+      <field type="uint8_t" name="sensor_type" enum="MAV_DISTANCE_SENSOR">Class id of the distance sensor type.</field>
+      <field type="uint16_t[72]" name="distances">Distance of obstacles in front of the sensor starting on the left side. A value of 0 means that the obstacle is right in front of the sensor. A value of max_distance +1 means no obstace is present. A value of UINT16_MAX for unknown/not used. In a array element, each unit corresponds to 1cm.</field>
       <field type="uint8_t" name="increment" units="deg">Angular width in degrees of each array element.</field>
+      <field type="uint16_t" name="min_distance" units="cm">Minimum distance the sensor can measure in centimeters</field>
+      <field type="uint16_t" name="max_distance" units="cm">Maximum distance the sensor can measure in centimeters</field>
     </message>
   </messages>
 </mavlink>
