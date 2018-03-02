@@ -18,8 +18,8 @@ typedef struct __mavlink_log_entry_t {
 #define MAVLINK_MSG_ID_118_LEN 15
 #define MAVLINK_MSG_ID_118_MIN_LEN 15
 
-#define MAVLINK_MSG_ID_LOG_ENTRY_CRC 56
-#define MAVLINK_MSG_ID_118_CRC 56
+#define MAVLINK_MSG_ID_LOG_ENTRY_CRC 230
+#define MAVLINK_MSG_ID_118_CRC 230
 
 
 

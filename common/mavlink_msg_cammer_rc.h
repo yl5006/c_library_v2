@@ -1,28 +1,28 @@
-﻿#pragma once
+#pragma once
 // MESSAGE CAMMER_RC PACKING
 
 #define MAVLINK_MSG_ID_CAMMER_RC 281
 
 MAVPACKED(
 typedef struct __mavlink_cammer_rc_t {
- uint16_t chan1_raw; /*< RC channel 1 value, in microseconds. A value of UINT16_MAX implies the channel is unused.*/
- uint16_t chan2_raw; /*< RC channel 2 value, in microseconds. A value of UINT16_MAX implies the channel is unused.*/
- uint16_t chan3_raw; /*< RC channel 3 value, in microseconds. A value of UINT16_MAX implies the channel is unused.*/
- uint16_t chan4_raw; /*< RC channel 4 value, in microseconds. A value of UINT16_MAX implies the channel is unused.*/
- uint16_t chan5_raw; /*< RC channel 5 value, in microseconds. A value of UINT16_MAX implies the channel is unused.*/
- uint16_t chan6_raw; /*< RC channel 6 value, in microseconds. A value of UINT16_MAX implies the channel is unused.*/
- uint16_t chan7_raw; /*< RC channel 7 value, in microseconds. A value of UINT16_MAX implies the channel is unused.*/
- uint16_t chan8_raw; /*< RC channel 8 value, in microseconds. A value of UINT16_MAX implies the channel is unused.*/
- uint16_t chan9_raw; /*< RC channel 9 value, in microseconds. A value of UINT16_MAX implies the channel is unused.*/
- uint16_t chan10_raw; /*< RC channel 10 value, in microseconds. A value of UINT16_MAX implies the channel is unused.*/
- uint16_t chan11_raw; /*< RC channel 11 value, in microseconds. A value of UINT16_MAX implies the channel is unused.*/
- uint16_t chan12_raw; /*< RC channel 12 value, in microseconds. A value of UINT16_MAX implies the channel is unused.*/
- uint16_t chan13_raw; /*< RC channel 13 value, in microseconds. A value of UINT16_MAX implies the channel is unused.*/
- uint16_t chan14_raw; /*< RC channel 14 value, in microseconds. A value of UINT16_MAX implies the channel is unused.*/
- uint16_t chan15_raw; /*< RC channel 15 value, in microseconds. A value of UINT16_MAX implies the channel is unused.*/
- uint16_t chan16_raw; /*< RC channel 16 value, in microseconds. A value of UINT16_MAX implies the channel is unused.*/
- uint16_t chan17_raw; /*< RC channel 17 value, in microseconds. A value of UINT16_MAX implies the channel is unused.*/
- uint16_t chan18_raw; /*< RC channel 18 value, in microseconds. A value of UINT16_MAX implies the channel is unused.*/
+ uint16_t chan1_raw; /*<  RC channel 1 value, in microseconds. A value of UINT16_MAX implies the channel is unused*/
+ uint16_t chan2_raw; /*<  RC channel 2 value, in microseconds. A value of UINT16_MAX implies the channel is unused*/
+ uint16_t chan3_raw; /*<  RC channel 3 value, in microseconds. A value of UINT16_MAX implies the channel is unused*/
+ uint16_t chan4_raw; /*<  RC channel 4 value, in microseconds. A value of UINT16_MAX implies the channel is unused*/
+ uint16_t chan5_raw; /*<  RC channel 5 value, in microseconds. A value of UINT16_MAX implies the channel is unused*/
+ uint16_t chan6_raw; /*<  RC channel 6 value, in microseconds. A value of UINT16_MAX implies the channel is unused*/
+ uint16_t chan7_raw; /*<  RC channel 7 value, in microseconds. A value of UINT16_MAX implies the channel is unused*/
+ uint16_t chan8_raw; /*<  RC channel 8 value, in microseconds. A value of UINT16_MAX implies the channel is unused*/
+ uint16_t chan9_raw; /*<  RC channel 9 value, in microseconds. A value of UINT16_MAX implies the channel is unused*/
+ uint16_t chan10_raw; /*<  RC channel 10 value, in microseconds. A value of UINT16_MAX implies the channel is unused*/
+ uint16_t chan11_raw; /*<  RC channel 11 value, in microseconds. A value of UINT16_MAX implies the channel is unused*/
+ uint16_t chan12_raw; /*<  RC channel 12 value, in microseconds. A value of UINT16_MAX implies the channel is unused*/
+ uint16_t chan13_raw; /*<  RC channel 13 value, in microseconds. A value of UINT16_MAX implies the channel is unused*/
+ uint16_t chan14_raw; /*<  RC channel 14 value, in microseconds. A value of UINT16_MAX implies the channel is unused*/
+ uint16_t chan15_raw; /*<  RC channel 15 value, in microseconds. A value of UINT16_MAX implies the channel is unused*/
+ uint16_t chan16_raw; /*<  RC channel 16 value, in microseconds. A value of UINT16_MAX implies the channel is unused*/
+ uint16_t chan17_raw; /*<  RC channel 17 value, in microseconds. A value of UINT16_MAX implies the channel is unused*/
+ uint16_t chan18_raw; /*<  RC channel 18 value, in microseconds. A value of UINT16_MAX implies the channel is unused*/
 }) mavlink_cammer_rc_t;
 
 #define MAVLINK_MSG_ID_CAMMER_RC_LEN 36
@@ -40,7 +40,7 @@ typedef struct __mavlink_cammer_rc_t {
     281, \
     "CAMMER_RC", \
     18, \
-    {    { "chan1_raw", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_cammer_rc_t, chan1_raw) }, \
+    {  { "chan1_raw", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_cammer_rc_t, chan1_raw) }, \
          { "chan2_raw", NULL, MAVLINK_TYPE_UINT16_T, 0, 2, offsetof(mavlink_cammer_rc_t, chan2_raw) }, \
          { "chan3_raw", NULL, MAVLINK_TYPE_UINT16_T, 0, 4, offsetof(mavlink_cammer_rc_t, chan3_raw) }, \
          { "chan4_raw", NULL, MAVLINK_TYPE_UINT16_T, 0, 6, offsetof(mavlink_cammer_rc_t, chan4_raw) }, \
@@ -63,8 +63,8 @@ typedef struct __mavlink_cammer_rc_t {
 #else
 #define MAVLINK_MESSAGE_INFO_CAMMER_RC { \
     "CAMMER_RC", \
-    16, \
-    {    { "chan1_raw", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_cammer_rc_t, chan1_raw) }, \
+    18, \
+    {  { "chan1_raw", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_cammer_rc_t, chan1_raw) }, \
          { "chan2_raw", NULL, MAVLINK_TYPE_UINT16_T, 0, 2, offsetof(mavlink_cammer_rc_t, chan2_raw) }, \
          { "chan3_raw", NULL, MAVLINK_TYPE_UINT16_T, 0, 4, offsetof(mavlink_cammer_rc_t, chan3_raw) }, \
          { "chan4_raw", NULL, MAVLINK_TYPE_UINT16_T, 0, 6, offsetof(mavlink_cammer_rc_t, chan4_raw) }, \
@@ -92,25 +92,26 @@ typedef struct __mavlink_cammer_rc_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param chan1_raw RC channel 1 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan2_raw RC channel 2 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan3_raw RC channel 3 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan4_raw RC channel 4 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan5_raw RC channel 5 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan6_raw RC channel 6 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan7_raw RC channel 7 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan8_raw RC channel 8 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan9_raw RC channel 9 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan10_raw RC channel 10 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan11_raw RC channel 11 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan12_raw RC channel 12 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan13_raw RC channel 13 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan14_raw RC channel 14 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan15_raw RC channel 15 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan16_raw RC channel 16 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan17_raw RC channel 17 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan18_raw RC channel 18 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
-*/
+ * @param chan1_raw  RC channel 1 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan2_raw  RC channel 2 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan3_raw  RC channel 3 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan4_raw  RC channel 4 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan5_raw  RC channel 5 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan6_raw  RC channel 6 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan7_raw  RC channel 7 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan8_raw  RC channel 8 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan9_raw  RC channel 9 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan10_raw  RC channel 10 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan11_raw  RC channel 11 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan12_raw  RC channel 12 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan13_raw  RC channel 13 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan14_raw  RC channel 14 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan15_raw  RC channel 15 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan16_raw  RC channel 16 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan17_raw  RC channel 17 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan18_raw  RC channel 18 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @return length of the message in bytes (excluding serial stream start sign)
+ */
 static inline uint16_t mavlink_msg_cammer_rc_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
                                uint16_t chan1_raw, uint16_t chan2_raw, uint16_t chan3_raw, uint16_t chan4_raw, uint16_t chan5_raw, uint16_t chan6_raw, uint16_t chan7_raw, uint16_t chan8_raw, uint16_t chan9_raw, uint16_t chan10_raw, uint16_t chan11_raw, uint16_t chan12_raw, uint16_t chan13_raw, uint16_t chan14_raw, uint16_t chan15_raw, uint16_t chan16_raw, uint16_t chan17_raw, uint16_t chan18_raw)
 {
@@ -170,27 +171,24 @@ static inline uint16_t mavlink_msg_cammer_rc_pack(uint8_t system_id, uint8_t com
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_boot_ms Timestamp (milliseconds since system boot)
- * @param chancount Total number of RC channels being received. This can be larger than 18, indicating that more channels are available but not given in this message. This value should be 0 when no RC channels are available.
- * @param chan1_raw RC channel 1 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan2_raw RC channel 2 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan3_raw RC channel 3 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan4_raw RC channel 4 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan5_raw RC channel 5 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan6_raw RC channel 6 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan7_raw RC channel 7 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan8_raw RC channel 8 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan9_raw RC channel 9 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan10_raw RC channel 10 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan11_raw RC channel 11 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan12_raw RC channel 12 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan13_raw RC channel 13 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan14_raw RC channel 14 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan15_raw RC channel 15 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan16_raw RC channel 16 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan17_raw RC channel 17 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan18_raw RC channel 18 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param rssi Receive signal strength indicator, 0: 0%, 100: 100%, 255: invalid/unknown.
+ * @param chan1_raw  RC channel 1 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan2_raw  RC channel 2 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan3_raw  RC channel 3 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan4_raw  RC channel 4 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan5_raw  RC channel 5 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan6_raw  RC channel 6 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan7_raw  RC channel 7 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan8_raw  RC channel 8 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan9_raw  RC channel 9 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan10_raw  RC channel 10 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan11_raw  RC channel 11 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan12_raw  RC channel 12 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan13_raw  RC channel 13 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan14_raw  RC channel 14 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan15_raw  RC channel 15 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan16_raw  RC channel 16 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan17_raw  RC channel 17 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan18_raw  RC channel 18 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_cammer_rc_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -278,27 +276,24 @@ static inline uint16_t mavlink_msg_cammer_rc_encode_chan(uint8_t system_id, uint
  * @brief Send a cammer_rc message
  * @param chan MAVLink channel to send the message
  *
- * @param time_boot_ms Timestamp (milliseconds since system boot)
- * @param chancount Total number of RC channels being received. This can be larger than 18, indicating that more channels are available but not given in this message. This value should be 0 when no RC channels are available.
- * @param chan1_raw RC channel 1 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan2_raw RC channel 2 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan3_raw RC channel 3 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan4_raw RC channel 4 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan5_raw RC channel 5 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan6_raw RC channel 6 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan7_raw RC channel 7 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan8_raw RC channel 8 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan9_raw RC channel 9 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan10_raw RC channel 10 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan11_raw RC channel 11 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan12_raw RC channel 12 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan13_raw RC channel 13 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan14_raw RC channel 14 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan15_raw RC channel 15 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan16_raw RC channel 16 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan17_raw RC channel 17 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param chan18_raw RC channel 18 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
- * @param rssi Receive signal strength indicator, 0: 0%, 100: 100%, 255: invalid/unknown.
+ * @param chan1_raw  RC channel 1 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan2_raw  RC channel 2 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan3_raw  RC channel 3 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan4_raw  RC channel 4 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan5_raw  RC channel 5 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan6_raw  RC channel 6 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan7_raw  RC channel 7 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan8_raw  RC channel 8 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan9_raw  RC channel 9 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan10_raw  RC channel 10 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan11_raw  RC channel 11 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan12_raw  RC channel 12 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan13_raw  RC channel 13 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan14_raw  RC channel 14 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan15_raw  RC channel 15 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan16_raw  RC channel 16 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan17_raw  RC channel 17 value, in microseconds. A value of UINT16_MAX implies the channel is unused
+ * @param chan18_raw  RC channel 18 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -359,7 +354,7 @@ static inline void mavlink_msg_cammer_rc_send(mavlink_channel_t chan, uint16_t c
 static inline void mavlink_msg_cammer_rc_send_struct(mavlink_channel_t chan, const mavlink_cammer_rc_t* cammer_rc)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-    mavlink_msg_cammer_rc_send(chan,  cammer_rc->chan1_raw, cammer_rc->chan2_raw, cammer_rc->chan3_raw, cammer_rc->chan4_raw, cammer_rc->chan5_raw, cammer_rc->chan6_raw, cammer_rc->chan7_raw, cammer_rc->chan8_raw, cammer_rc->chan9_raw, cammer_rc->chan10_raw, cammer_rc->chan11_raw, cammer_rc->chan12_raw, cammer_rc->chan13_raw, cammer_rc->chan14_raw, cammer_rc->chan15_raw, cammer_rc->chan16_raw, cammer_rc->chan17_raw, cammer_rc->chan18_raw);
+    mavlink_msg_cammer_rc_send(chan, cammer_rc->chan1_raw, cammer_rc->chan2_raw, cammer_rc->chan3_raw, cammer_rc->chan4_raw, cammer_rc->chan5_raw, cammer_rc->chan6_raw, cammer_rc->chan7_raw, cammer_rc->chan8_raw, cammer_rc->chan9_raw, cammer_rc->chan10_raw, cammer_rc->chan11_raw, cammer_rc->chan12_raw, cammer_rc->chan13_raw, cammer_rc->chan14_raw, cammer_rc->chan15_raw, cammer_rc->chan16_raw, cammer_rc->chan17_raw, cammer_rc->chan18_raw);
 #else
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_CAMMER_RC, (const char *)cammer_rc, MAVLINK_MSG_ID_CAMMER_RC_MIN_LEN, MAVLINK_MSG_ID_CAMMER_RC_LEN, MAVLINK_MSG_ID_CAMMER_RC_CRC);
 #endif
@@ -427,10 +422,11 @@ static inline void mavlink_msg_cammer_rc_send_buf(mavlink_message_t *msgbuf, mav
 
 // MESSAGE CAMMER_RC UNPACKING
 
+
 /**
  * @brief Get field chan1_raw from cammer_rc message
  *
- * @return RC channel 1 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
+ * @return  RC channel 1 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 static inline uint16_t mavlink_msg_cammer_rc_get_chan1_raw(const mavlink_message_t* msg)
 {
@@ -440,7 +436,7 @@ static inline uint16_t mavlink_msg_cammer_rc_get_chan1_raw(const mavlink_message
 /**
  * @brief Get field chan2_raw from cammer_rc message
  *
- * @return RC channel 2 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
+ * @return  RC channel 2 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 static inline uint16_t mavlink_msg_cammer_rc_get_chan2_raw(const mavlink_message_t* msg)
 {
@@ -450,7 +446,7 @@ static inline uint16_t mavlink_msg_cammer_rc_get_chan2_raw(const mavlink_message
 /**
  * @brief Get field chan3_raw from cammer_rc message
  *
- * @return RC channel 3 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
+ * @return  RC channel 3 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 static inline uint16_t mavlink_msg_cammer_rc_get_chan3_raw(const mavlink_message_t* msg)
 {
@@ -460,7 +456,7 @@ static inline uint16_t mavlink_msg_cammer_rc_get_chan3_raw(const mavlink_message
 /**
  * @brief Get field chan4_raw from cammer_rc message
  *
- * @return RC channel 4 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
+ * @return  RC channel 4 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 static inline uint16_t mavlink_msg_cammer_rc_get_chan4_raw(const mavlink_message_t* msg)
 {
@@ -470,7 +466,7 @@ static inline uint16_t mavlink_msg_cammer_rc_get_chan4_raw(const mavlink_message
 /**
  * @brief Get field chan5_raw from cammer_rc message
  *
- * @return RC channel 5 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
+ * @return  RC channel 5 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 static inline uint16_t mavlink_msg_cammer_rc_get_chan5_raw(const mavlink_message_t* msg)
 {
@@ -480,7 +476,7 @@ static inline uint16_t mavlink_msg_cammer_rc_get_chan5_raw(const mavlink_message
 /**
  * @brief Get field chan6_raw from cammer_rc message
  *
- * @return RC channel 6 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
+ * @return  RC channel 6 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 static inline uint16_t mavlink_msg_cammer_rc_get_chan6_raw(const mavlink_message_t* msg)
 {
@@ -490,7 +486,7 @@ static inline uint16_t mavlink_msg_cammer_rc_get_chan6_raw(const mavlink_message
 /**
  * @brief Get field chan7_raw from cammer_rc message
  *
- * @return RC channel 7 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
+ * @return  RC channel 7 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 static inline uint16_t mavlink_msg_cammer_rc_get_chan7_raw(const mavlink_message_t* msg)
 {
@@ -500,7 +496,7 @@ static inline uint16_t mavlink_msg_cammer_rc_get_chan7_raw(const mavlink_message
 /**
  * @brief Get field chan8_raw from cammer_rc message
  *
- * @return RC channel 8 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
+ * @return  RC channel 8 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 static inline uint16_t mavlink_msg_cammer_rc_get_chan8_raw(const mavlink_message_t* msg)
 {
@@ -510,7 +506,7 @@ static inline uint16_t mavlink_msg_cammer_rc_get_chan8_raw(const mavlink_message
 /**
  * @brief Get field chan9_raw from cammer_rc message
  *
- * @return RC channel 9 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
+ * @return  RC channel 9 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 static inline uint16_t mavlink_msg_cammer_rc_get_chan9_raw(const mavlink_message_t* msg)
 {
@@ -520,7 +516,7 @@ static inline uint16_t mavlink_msg_cammer_rc_get_chan9_raw(const mavlink_message
 /**
  * @brief Get field chan10_raw from cammer_rc message
  *
- * @return RC channel 10 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
+ * @return  RC channel 10 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 static inline uint16_t mavlink_msg_cammer_rc_get_chan10_raw(const mavlink_message_t* msg)
 {
@@ -530,7 +526,7 @@ static inline uint16_t mavlink_msg_cammer_rc_get_chan10_raw(const mavlink_messag
 /**
  * @brief Get field chan11_raw from cammer_rc message
  *
- * @return RC channel 11 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
+ * @return  RC channel 11 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 static inline uint16_t mavlink_msg_cammer_rc_get_chan11_raw(const mavlink_message_t* msg)
 {
@@ -540,7 +536,7 @@ static inline uint16_t mavlink_msg_cammer_rc_get_chan11_raw(const mavlink_messag
 /**
  * @brief Get field chan12_raw from cammer_rc message
  *
- * @return RC channel 12 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
+ * @return  RC channel 12 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 static inline uint16_t mavlink_msg_cammer_rc_get_chan12_raw(const mavlink_message_t* msg)
 {
@@ -550,7 +546,7 @@ static inline uint16_t mavlink_msg_cammer_rc_get_chan12_raw(const mavlink_messag
 /**
  * @brief Get field chan13_raw from cammer_rc message
  *
- * @return RC channel 13 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
+ * @return  RC channel 13 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 static inline uint16_t mavlink_msg_cammer_rc_get_chan13_raw(const mavlink_message_t* msg)
 {
@@ -560,7 +556,7 @@ static inline uint16_t mavlink_msg_cammer_rc_get_chan13_raw(const mavlink_messag
 /**
  * @brief Get field chan14_raw from cammer_rc message
  *
- * @return RC channel 14 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
+ * @return  RC channel 14 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 static inline uint16_t mavlink_msg_cammer_rc_get_chan14_raw(const mavlink_message_t* msg)
 {
@@ -570,7 +566,7 @@ static inline uint16_t mavlink_msg_cammer_rc_get_chan14_raw(const mavlink_messag
 /**
  * @brief Get field chan15_raw from cammer_rc message
  *
- * @return RC channel 15 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
+ * @return  RC channel 15 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 static inline uint16_t mavlink_msg_cammer_rc_get_chan15_raw(const mavlink_message_t* msg)
 {
@@ -580,7 +576,7 @@ static inline uint16_t mavlink_msg_cammer_rc_get_chan15_raw(const mavlink_messag
 /**
  * @brief Get field chan16_raw from cammer_rc message
  *
- * @return RC channel 16 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
+ * @return  RC channel 16 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 static inline uint16_t mavlink_msg_cammer_rc_get_chan16_raw(const mavlink_message_t* msg)
 {
@@ -590,7 +586,7 @@ static inline uint16_t mavlink_msg_cammer_rc_get_chan16_raw(const mavlink_messag
 /**
  * @brief Get field chan17_raw from cammer_rc message
  *
- * @return RC channel 17 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
+ * @return  RC channel 17 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 static inline uint16_t mavlink_msg_cammer_rc_get_chan17_raw(const mavlink_message_t* msg)
 {
@@ -600,7 +596,7 @@ static inline uint16_t mavlink_msg_cammer_rc_get_chan17_raw(const mavlink_messag
 /**
  * @brief Get field chan18_raw from cammer_rc message
  *
- * @return RC channel 18 value, in microseconds. A value of UINT16_MAX implies the channel is unused.
+ * @return  RC channel 18 value, in microseconds. A value of UINT16_MAX implies the channel is unused
  */
 static inline uint16_t mavlink_msg_cammer_rc_get_chan18_raw(const mavlink_message_t* msg)
 {

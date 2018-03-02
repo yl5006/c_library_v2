@@ -1,9 +1,10 @@
-﻿// MESSAGE HORIZONTAL_DISTANCE PACKING
+#pragma once
+// MESSAGE HORIZONTAL_DISTANCE PACKING
 
 #define MAVLINK_MSG_ID_HORIZONTAL_DISTANCE 280
+
 MAVPACKED(
-typedef struct __mavlink_horizontal_distance_t
-{
+typedef struct __mavlink_horizontal_distance_t {
  uint32_t time_boot_ms; /*< Time since system boot*/
  uint16_t min_distance; /*< Minimum distance the sensor can measure in centimeters*/
  uint16_t max_distance; /*< Maximum distance the sensor can measure in centimeters*/
@@ -26,10 +27,10 @@ typedef struct __mavlink_horizontal_distance_t
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_HORIZONTAL_DISTANCE { \
-	180, \
-	"HORIZONTAL_DISTANCE", \
-	8, \
-	{  { "time_boot_ms", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_horizontal_distance_t, time_boot_ms) }, \
+    280, \
+    "HORIZONTAL_DISTANCE", \
+    8, \
+    {  { "time_boot_ms", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_horizontal_distance_t, time_boot_ms) }, \
          { "min_distance", NULL, MAVLINK_TYPE_UINT16_T, 0, 4, offsetof(mavlink_horizontal_distance_t, min_distance) }, \
          { "max_distance", NULL, MAVLINK_TYPE_UINT16_T, 0, 6, offsetof(mavlink_horizontal_distance_t, max_distance) }, \
          { "current_distance", NULL, MAVLINK_TYPE_UINT16_T, 4, 8, offsetof(mavlink_horizontal_distance_t, current_distance) }, \
@@ -41,9 +42,9 @@ typedef struct __mavlink_horizontal_distance_t
 }
 #else
 #define MAVLINK_MESSAGE_INFO_HORIZONTAL_DISTANCE { \
-	"HORIZONTAL_DISTANCE", \
-	8, \
-	{  { "time_boot_ms", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_horizontal_distance_t, time_boot_ms) }, \
+    "HORIZONTAL_DISTANCE", \
+    8, \
+    {  { "time_boot_ms", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_horizontal_distance_t, time_boot_ms) }, \
          { "min_distance", NULL, MAVLINK_TYPE_UINT16_T, 0, 4, offsetof(mavlink_horizontal_distance_t, min_distance) }, \
          { "max_distance", NULL, MAVLINK_TYPE_UINT16_T, 0, 6, offsetof(mavlink_horizontal_distance_t, max_distance) }, \
          { "current_distance", NULL, MAVLINK_TYPE_UINT16_T, 4, 8, offsetof(mavlink_horizontal_distance_t, current_distance) }, \
@@ -72,33 +73,33 @@ typedef struct __mavlink_horizontal_distance_t
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_horizontal_distance_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
-						       uint32_t time_boot_ms, uint16_t min_distance, uint16_t max_distance, const uint16_t *current_distance, uint8_t type, uint8_t id, uint8_t orientation, uint8_t covariance)
+                               uint32_t time_boot_ms, uint16_t min_distance, uint16_t max_distance, const uint16_t *current_distance, uint8_t type, uint8_t id, uint8_t orientation, uint8_t covariance)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-	char buf[MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN];
-	_mav_put_uint32_t(buf, 0, time_boot_ms);
-	_mav_put_uint16_t(buf, 4, min_distance);
-	_mav_put_uint16_t(buf, 6, max_distance);
-	_mav_put_uint8_t(buf, 16, type);
-	_mav_put_uint8_t(buf, 17, id);
-	_mav_put_uint8_t(buf, 18, orientation);
-	_mav_put_uint8_t(buf, 19, covariance);
-	_mav_put_uint16_t_array(buf, 8, current_distance, 4);
+    char buf[MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN];
+    _mav_put_uint32_t(buf, 0, time_boot_ms);
+    _mav_put_uint16_t(buf, 4, min_distance);
+    _mav_put_uint16_t(buf, 6, max_distance);
+    _mav_put_uint8_t(buf, 16, type);
+    _mav_put_uint8_t(buf, 17, id);
+    _mav_put_uint8_t(buf, 18, orientation);
+    _mav_put_uint8_t(buf, 19, covariance);
+    _mav_put_uint16_t_array(buf, 8, current_distance, 4);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN);
 #else
-	mavlink_horizontal_distance_t packet;
-	packet.time_boot_ms = time_boot_ms;
-	packet.min_distance = min_distance;
-	packet.max_distance = max_distance;
-	packet.type = type;
-	packet.id = id;
-	packet.orientation = orientation;
-	packet.covariance = covariance;
-	mav_array_memcpy(packet.current_distance, current_distance, sizeof(uint16_t)*4);
+    mavlink_horizontal_distance_t packet;
+    packet.time_boot_ms = time_boot_ms;
+    packet.min_distance = min_distance;
+    packet.max_distance = max_distance;
+    packet.type = type;
+    packet.id = id;
+    packet.orientation = orientation;
+    packet.covariance = covariance;
+    mav_array_memcpy(packet.current_distance, current_distance, sizeof(uint16_t)*4);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN);
 #endif
 
-	msg->msgid = MAVLINK_MSG_ID_HORIZONTAL_DISTANCE;
+    msg->msgid = MAVLINK_MSG_ID_HORIZONTAL_DISTANCE;
     return mavlink_finalize_message(msg, system_id, component_id, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_MIN_LEN, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_CRC);
 }
 
@@ -119,34 +120,34 @@ static inline uint16_t mavlink_msg_horizontal_distance_pack(uint8_t system_id, u
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_horizontal_distance_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
-							   mavlink_message_t* msg,
-						           uint32_t time_boot_ms,uint16_t min_distance,uint16_t max_distance,const uint16_t *current_distance,uint8_t type,uint8_t id,uint8_t orientation,uint8_t covariance)
+                               mavlink_message_t* msg,
+                                   uint32_t time_boot_ms,uint16_t min_distance,uint16_t max_distance,const uint16_t *current_distance,uint8_t type,uint8_t id,uint8_t orientation,uint8_t covariance)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-	char buf[MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN];
-	_mav_put_uint32_t(buf, 0, time_boot_ms);
-	_mav_put_uint16_t(buf, 4, min_distance);
-	_mav_put_uint16_t(buf, 6, max_distance);
-	_mav_put_uint8_t(buf, 16, type);
-	_mav_put_uint8_t(buf, 17, id);
-	_mav_put_uint8_t(buf, 18, orientation);
-	_mav_put_uint8_t(buf, 19, covariance);
-	_mav_put_uint16_t_array(buf, 8, current_distance, 4);
+    char buf[MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN];
+    _mav_put_uint32_t(buf, 0, time_boot_ms);
+    _mav_put_uint16_t(buf, 4, min_distance);
+    _mav_put_uint16_t(buf, 6, max_distance);
+    _mav_put_uint8_t(buf, 16, type);
+    _mav_put_uint8_t(buf, 17, id);
+    _mav_put_uint8_t(buf, 18, orientation);
+    _mav_put_uint8_t(buf, 19, covariance);
+    _mav_put_uint16_t_array(buf, 8, current_distance, 4);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN);
 #else
-	mavlink_horizontal_distance_t packet;
-	packet.time_boot_ms = time_boot_ms;
-	packet.min_distance = min_distance;
-	packet.max_distance = max_distance;
-	packet.type = type;
-	packet.id = id;
-	packet.orientation = orientation;
-	packet.covariance = covariance;
-	mav_array_memcpy(packet.current_distance, current_distance, sizeof(uint16_t)*4);
+    mavlink_horizontal_distance_t packet;
+    packet.time_boot_ms = time_boot_ms;
+    packet.min_distance = min_distance;
+    packet.max_distance = max_distance;
+    packet.type = type;
+    packet.id = id;
+    packet.orientation = orientation;
+    packet.covariance = covariance;
+    mav_array_memcpy(packet.current_distance, current_distance, sizeof(uint16_t)*4);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN);
 #endif
 
-	msg->msgid = MAVLINK_MSG_ID_HORIZONTAL_DISTANCE;
+    msg->msgid = MAVLINK_MSG_ID_HORIZONTAL_DISTANCE;
     return mavlink_finalize_message_chan(msg, system_id, component_id, chan, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_MIN_LEN, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_CRC);
 }
 
@@ -160,7 +161,7 @@ static inline uint16_t mavlink_msg_horizontal_distance_pack_chan(uint8_t system_
  */
 static inline uint16_t mavlink_msg_horizontal_distance_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_horizontal_distance_t* horizontal_distance)
 {
-	return mavlink_msg_horizontal_distance_pack(system_id, component_id, msg, horizontal_distance->time_boot_ms, horizontal_distance->min_distance, horizontal_distance->max_distance, horizontal_distance->current_distance, horizontal_distance->type, horizontal_distance->id, horizontal_distance->orientation, horizontal_distance->covariance);
+    return mavlink_msg_horizontal_distance_pack(system_id, component_id, msg, horizontal_distance->time_boot_ms, horizontal_distance->min_distance, horizontal_distance->max_distance, horizontal_distance->current_distance, horizontal_distance->type, horizontal_distance->id, horizontal_distance->orientation, horizontal_distance->covariance);
 }
 
 /**
@@ -174,7 +175,7 @@ static inline uint16_t mavlink_msg_horizontal_distance_encode(uint8_t system_id,
  */
 static inline uint16_t mavlink_msg_horizontal_distance_encode_chan(uint8_t system_id, uint8_t component_id, uint8_t chan, mavlink_message_t* msg, const mavlink_horizontal_distance_t* horizontal_distance)
 {
-	return mavlink_msg_horizontal_distance_pack_chan(system_id, component_id, chan, msg, horizontal_distance->time_boot_ms, horizontal_distance->min_distance, horizontal_distance->max_distance, horizontal_distance->current_distance, horizontal_distance->type, horizontal_distance->id, horizontal_distance->orientation, horizontal_distance->covariance);
+    return mavlink_msg_horizontal_distance_pack_chan(system_id, component_id, chan, msg, horizontal_distance->time_boot_ms, horizontal_distance->min_distance, horizontal_distance->max_distance, horizontal_distance->current_distance, horizontal_distance->type, horizontal_distance->id, horizontal_distance->orientation, horizontal_distance->covariance);
 }
 
 /**
@@ -195,26 +196,26 @@ static inline uint16_t mavlink_msg_horizontal_distance_encode_chan(uint8_t syste
 static inline void mavlink_msg_horizontal_distance_send(mavlink_channel_t chan, uint32_t time_boot_ms, uint16_t min_distance, uint16_t max_distance, const uint16_t *current_distance, uint8_t type, uint8_t id, uint8_t orientation, uint8_t covariance)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-	char buf[MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN];
-	_mav_put_uint32_t(buf, 0, time_boot_ms);
-	_mav_put_uint16_t(buf, 4, min_distance);
-	_mav_put_uint16_t(buf, 6, max_distance);
-	_mav_put_uint8_t(buf, 16, type);
-	_mav_put_uint8_t(buf, 17, id);
-	_mav_put_uint8_t(buf, 18, orientation);
-	_mav_put_uint8_t(buf, 19, covariance);
-	_mav_put_uint16_t_array(buf, 8, current_distance, 4);
+    char buf[MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN];
+    _mav_put_uint32_t(buf, 0, time_boot_ms);
+    _mav_put_uint16_t(buf, 4, min_distance);
+    _mav_put_uint16_t(buf, 6, max_distance);
+    _mav_put_uint8_t(buf, 16, type);
+    _mav_put_uint8_t(buf, 17, id);
+    _mav_put_uint8_t(buf, 18, orientation);
+    _mav_put_uint8_t(buf, 19, covariance);
+    _mav_put_uint16_t_array(buf, 8, current_distance, 4);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE, buf, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_MIN_LEN, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_CRC);
 #else
-	mavlink_horizontal_distance_t packet;
-	packet.time_boot_ms = time_boot_ms;
-	packet.min_distance = min_distance;
-	packet.max_distance = max_distance;
-	packet.type = type;
-	packet.id = id;
-	packet.orientation = orientation;
-	packet.covariance = covariance;
-	mav_array_memcpy(packet.current_distance, current_distance, sizeof(uint16_t)*4);
+    mavlink_horizontal_distance_t packet;
+    packet.time_boot_ms = time_boot_ms;
+    packet.min_distance = min_distance;
+    packet.max_distance = max_distance;
+    packet.type = type;
+    packet.id = id;
+    packet.orientation = orientation;
+    packet.covariance = covariance;
+    mav_array_memcpy(packet.current_distance, current_distance, sizeof(uint16_t)*4);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE, (const char *)&packet, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_MIN_LEN, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_CRC);
 #endif
 }
@@ -244,26 +245,26 @@ static inline void mavlink_msg_horizontal_distance_send_struct(mavlink_channel_t
 static inline void mavlink_msg_horizontal_distance_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint32_t time_boot_ms, uint16_t min_distance, uint16_t max_distance, const uint16_t *current_distance, uint8_t type, uint8_t id, uint8_t orientation, uint8_t covariance)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-	char *buf = (char *)msgbuf;
-	_mav_put_uint32_t(buf, 0, time_boot_ms);
-	_mav_put_uint16_t(buf, 4, min_distance);
-	_mav_put_uint16_t(buf, 6, max_distance);
-	_mav_put_uint8_t(buf, 16, type);
-	_mav_put_uint8_t(buf, 17, id);
-	_mav_put_uint8_t(buf, 18, orientation);
-	_mav_put_uint8_t(buf, 19, covariance);
-	_mav_put_uint16_t_array(buf, 8, current_distance, 4);
+    char *buf = (char *)msgbuf;
+    _mav_put_uint32_t(buf, 0, time_boot_ms);
+    _mav_put_uint16_t(buf, 4, min_distance);
+    _mav_put_uint16_t(buf, 6, max_distance);
+    _mav_put_uint8_t(buf, 16, type);
+    _mav_put_uint8_t(buf, 17, id);
+    _mav_put_uint8_t(buf, 18, orientation);
+    _mav_put_uint8_t(buf, 19, covariance);
+    _mav_put_uint16_t_array(buf, 8, current_distance, 4);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE, buf, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_MIN_LEN, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_CRC);
 #else
-	mavlink_horizontal_distance_t *packet = (mavlink_horizontal_distance_t *)msgbuf;
-	packet->time_boot_ms = time_boot_ms;
-	packet->min_distance = min_distance;
-	packet->max_distance = max_distance;
-	packet->type = type;
-	packet->id = id;
-	packet->orientation = orientation;
-	packet->covariance = covariance;
-	mav_array_memcpy(packet->current_distance, current_distance, sizeof(uint16_t)*4);
+    mavlink_horizontal_distance_t *packet = (mavlink_horizontal_distance_t *)msgbuf;
+    packet->time_boot_ms = time_boot_ms;
+    packet->min_distance = min_distance;
+    packet->max_distance = max_distance;
+    packet->type = type;
+    packet->id = id;
+    packet->orientation = orientation;
+    packet->covariance = covariance;
+    mav_array_memcpy(packet->current_distance, current_distance, sizeof(uint16_t)*4);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE, (const char *)packet, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_MIN_LEN, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_CRC);
 #endif
 }
@@ -281,7 +282,7 @@ static inline void mavlink_msg_horizontal_distance_send_buf(mavlink_message_t *m
  */
 static inline uint32_t mavlink_msg_horizontal_distance_get_time_boot_ms(const mavlink_message_t* msg)
 {
-	return _MAV_RETURN_uint32_t(msg,  0);
+    return _MAV_RETURN_uint32_t(msg,  0);
 }
 
 /**
@@ -291,7 +292,7 @@ static inline uint32_t mavlink_msg_horizontal_distance_get_time_boot_ms(const ma
  */
 static inline uint16_t mavlink_msg_horizontal_distance_get_min_distance(const mavlink_message_t* msg)
 {
-	return _MAV_RETURN_uint16_t(msg,  4);
+    return _MAV_RETURN_uint16_t(msg,  4);
 }
 
 /**
@@ -301,7 +302,7 @@ static inline uint16_t mavlink_msg_horizontal_distance_get_min_distance(const ma
  */
 static inline uint16_t mavlink_msg_horizontal_distance_get_max_distance(const mavlink_message_t* msg)
 {
-	return _MAV_RETURN_uint16_t(msg,  6);
+    return _MAV_RETURN_uint16_t(msg,  6);
 }
 
 /**
@@ -311,7 +312,7 @@ static inline uint16_t mavlink_msg_horizontal_distance_get_max_distance(const ma
  */
 static inline uint16_t mavlink_msg_horizontal_distance_get_current_distance(const mavlink_message_t* msg, uint16_t *current_distance)
 {
-	return _MAV_RETURN_uint16_t_array(msg, current_distance, 4,  8);
+    return _MAV_RETURN_uint16_t_array(msg, current_distance, 4,  8);
 }
 
 /**
@@ -321,7 +322,7 @@ static inline uint16_t mavlink_msg_horizontal_distance_get_current_distance(cons
  */
 static inline uint8_t mavlink_msg_horizontal_distance_get_type(const mavlink_message_t* msg)
 {
-	return _MAV_RETURN_uint8_t(msg,  16);
+    return _MAV_RETURN_uint8_t(msg,  16);
 }
 
 /**
@@ -331,7 +332,7 @@ static inline uint8_t mavlink_msg_horizontal_distance_get_type(const mavlink_mes
  */
 static inline uint8_t mavlink_msg_horizontal_distance_get_id(const mavlink_message_t* msg)
 {
-	return _MAV_RETURN_uint8_t(msg,  17);
+    return _MAV_RETURN_uint8_t(msg,  17);
 }
 
 /**
@@ -341,7 +342,7 @@ static inline uint8_t mavlink_msg_horizontal_distance_get_id(const mavlink_messa
  */
 static inline uint8_t mavlink_msg_horizontal_distance_get_orientation(const mavlink_message_t* msg)
 {
-	return _MAV_RETURN_uint8_t(msg,  18);
+    return _MAV_RETURN_uint8_t(msg,  18);
 }
 
 /**
@@ -351,7 +352,7 @@ static inline uint8_t mavlink_msg_horizontal_distance_get_orientation(const mavl
  */
 static inline uint8_t mavlink_msg_horizontal_distance_get_covariance(const mavlink_message_t* msg)
 {
-	return _MAV_RETURN_uint8_t(msg,  19);
+    return _MAV_RETURN_uint8_t(msg,  19);
 }
 
 /**
@@ -363,17 +364,17 @@ static inline uint8_t mavlink_msg_horizontal_distance_get_covariance(const mavli
 static inline void mavlink_msg_horizontal_distance_decode(const mavlink_message_t* msg, mavlink_horizontal_distance_t* horizontal_distance)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-	horizontal_distance->time_boot_ms = mavlink_msg_horizontal_distance_get_time_boot_ms(msg);
-	horizontal_distance->min_distance = mavlink_msg_horizontal_distance_get_min_distance(msg);
-	horizontal_distance->max_distance = mavlink_msg_horizontal_distance_get_max_distance(msg);
-	mavlink_msg_horizontal_distance_get_current_distance(msg, horizontal_distance->current_distance);
-	horizontal_distance->type = mavlink_msg_horizontal_distance_get_type(msg);
-	horizontal_distance->id = mavlink_msg_horizontal_distance_get_id(msg);
-	horizontal_distance->orientation = mavlink_msg_horizontal_distance_get_orientation(msg);
-	horizontal_distance->covariance = mavlink_msg_horizontal_distance_get_covariance(msg);
+    horizontal_distance->time_boot_ms = mavlink_msg_horizontal_distance_get_time_boot_ms(msg);
+    horizontal_distance->min_distance = mavlink_msg_horizontal_distance_get_min_distance(msg);
+    horizontal_distance->max_distance = mavlink_msg_horizontal_distance_get_max_distance(msg);
+    mavlink_msg_horizontal_distance_get_current_distance(msg, horizontal_distance->current_distance);
+    horizontal_distance->type = mavlink_msg_horizontal_distance_get_type(msg);
+    horizontal_distance->id = mavlink_msg_horizontal_distance_get_id(msg);
+    horizontal_distance->orientation = mavlink_msg_horizontal_distance_get_orientation(msg);
+    horizontal_distance->covariance = mavlink_msg_horizontal_distance_get_covariance(msg);
 #else
         uint8_t len = msg->len < MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN? msg->len : MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN;
         memset(horizontal_distance, 0, MAVLINK_MSG_ID_HORIZONTAL_DISTANCE_LEN);
-	memcpy(horizontal_distance, _MAV_PAYLOAD(msg), len);
+    memcpy(horizontal_distance, _MAV_PAYLOAD(msg), len);
 #endif
 }
