@@ -5,11 +5,11 @@
 
 MAVPACKED(
 typedef struct __mavlink_log_entry_t {
- uint32_t time_utc; /*< UTC timestamp of log in seconds since 1970, or 0 if not available*/
- uint32_t size; /*< Size of the log (may be approximate) in bytes*/
- uint16_t id; /*< Log id*/
- uint16_t num_logs; /*< Total number of logs*/
- uint16_t last_log_num; /*< High log number*/
+ uint32_t time_utc; /*< [s] UTC timestamp of log since 1970, or 0 if not available*/
+ uint32_t size; /*< [bytes] Size of the log (may be approximate)*/
+ uint16_t id; /*<  Log id*/
+ uint16_t num_logs; /*<  Total number of logs*/
+ uint16_t last_log_num; /*<  High log number*/
  uint8_t log_type; /*< log typer*/
 }) mavlink_log_entry_t;
 
@@ -57,11 +57,11 @@ typedef struct __mavlink_log_entry_t {
  * @param msg The MAVLink message to compress the data into
  *
  * @param log_type log typer
- * @param id Log id
- * @param num_logs Total number of logs
- * @param last_log_num High log number
- * @param time_utc UTC timestamp of log in seconds since 1970, or 0 if not available
- * @param size Size of the log (may be approximate) in bytes
+ * @param id  Log id
+ * @param num_logs  Total number of logs
+ * @param last_log_num  High log number
+ * @param time_utc [s] UTC timestamp of log since 1970, or 0 if not available
+ * @param size [bytes] Size of the log (may be approximate)
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_log_entry_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -100,11 +100,11 @@ static inline uint16_t mavlink_msg_log_entry_pack(uint8_t system_id, uint8_t com
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
  * @param log_type log typer
- * @param id Log id
- * @param num_logs Total number of logs
- * @param last_log_num High log number
- * @param time_utc UTC timestamp of log in seconds since 1970, or 0 if not available
- * @param size Size of the log (may be approximate) in bytes
+ * @param id  Log id
+ * @param num_logs  Total number of logs
+ * @param last_log_num  High log number
+ * @param time_utc [s] UTC timestamp of log since 1970, or 0 if not available
+ * @param size [bytes] Size of the log (may be approximate)
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_log_entry_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -169,11 +169,11 @@ static inline uint16_t mavlink_msg_log_entry_encode_chan(uint8_t system_id, uint
  * @param chan MAVLink channel to send the message
  *
  * @param log_type log typer
- * @param id Log id
- * @param num_logs Total number of logs
- * @param last_log_num High log number
- * @param time_utc UTC timestamp of log in seconds since 1970, or 0 if not available
- * @param size Size of the log (may be approximate) in bytes
+ * @param id  Log id
+ * @param num_logs  Total number of logs
+ * @param last_log_num  High log number
+ * @param time_utc [s] UTC timestamp of log since 1970, or 0 if not available
+ * @param size [bytes] Size of the log (may be approximate)
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -268,7 +268,7 @@ static inline uint8_t mavlink_msg_log_entry_get_log_type(const mavlink_message_t
 /**
  * @brief Get field id from log_entry message
  *
- * @return Log id
+ * @return  Log id
  */
 static inline uint16_t mavlink_msg_log_entry_get_id(const mavlink_message_t* msg)
 {
@@ -278,7 +278,7 @@ static inline uint16_t mavlink_msg_log_entry_get_id(const mavlink_message_t* msg
 /**
  * @brief Get field num_logs from log_entry message
  *
- * @return Total number of logs
+ * @return  Total number of logs
  */
 static inline uint16_t mavlink_msg_log_entry_get_num_logs(const mavlink_message_t* msg)
 {
@@ -288,7 +288,7 @@ static inline uint16_t mavlink_msg_log_entry_get_num_logs(const mavlink_message_
 /**
  * @brief Get field last_log_num from log_entry message
  *
- * @return High log number
+ * @return  High log number
  */
 static inline uint16_t mavlink_msg_log_entry_get_last_log_num(const mavlink_message_t* msg)
 {
@@ -298,7 +298,7 @@ static inline uint16_t mavlink_msg_log_entry_get_last_log_num(const mavlink_mess
 /**
  * @brief Get field time_utc from log_entry message
  *
- * @return UTC timestamp of log in seconds since 1970, or 0 if not available
+ * @return [s] UTC timestamp of log since 1970, or 0 if not available
  */
 static inline uint32_t mavlink_msg_log_entry_get_time_utc(const mavlink_message_t* msg)
 {
@@ -308,7 +308,7 @@ static inline uint32_t mavlink_msg_log_entry_get_time_utc(const mavlink_message_
 /**
  * @brief Get field size from log_entry message
  *
- * @return Size of the log (may be approximate) in bytes
+ * @return [bytes] Size of the log (may be approximate)
  */
 static inline uint32_t mavlink_msg_log_entry_get_size(const mavlink_message_t* msg)
 {
