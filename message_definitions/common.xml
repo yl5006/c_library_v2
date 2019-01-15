@@ -1616,6 +1616,14 @@
         <param index="2">Focus value</param>
         <param index="3">Reserved (all remaining params)</param>
       </entry>
+       <entry value="1000" name="MAV_CMD_SET_LED_LINE_STATUS">
+        <wip/>
+        <!-- This message add for led line control. -->
+        <description>led line control</description>
+        <param index="1">Cmd</param>
+        <param index="2">time interval</param>
+        <param index="3">Reserved</param>
+      </entry>
       <entry value="2000" name="MAV_CMD_IMAGE_START_CAPTURE">
         <description>Start image capture sequence. Sends CAMERA_IMAGE_CAPTURED after each capture. Use NAN for reserved values.</description>
         <param index="1">Reserved (Set to 0)</param>

@@ -153,6 +153,7 @@ typedef enum MAV_CMD
    MAV_CMD_SET_CAMERA_MODE=530, /* Set camera running mode. Use NAN for reserved values. |Reserved (Set to 0)| Camera mode (see CAMERA_MODE enum)| Reserved (all remaining params)|  */
    MAV_CMD_SET_CAMERA_ZOOM=531, /* Set camera zoom. Returns CAMERA_SETTINGS message. Use NAN for reserved values. |Zoom type| Zoom value| Reserved (all remaining params)|  */
    MAV_CMD_SET_CAMERA_FOCUS=532, /* Set camera focus. Returns CAMERA_SETTINGS message. Use NAN for reserved values. |Focus type| Focus value| Reserved (all remaining params)|  */
+   MAV_CMD_SET_LED_LINE_STATUS=1000, /* led line control |Cmd| time interval| Reserved|  */
    MAV_CMD_IMAGE_START_CAPTURE=2000, /* Start image capture sequence. Sends CAMERA_IMAGE_CAPTURED after each capture. Use NAN for reserved values. |Reserved (Set to 0)| Duration between two consecutive pictures (in seconds)| Number of images to capture total - 0 for unlimited capture| Capture sequence (ID to prevent double captures when a command is retransmitted, 0: unused, >= 1: used)| Reserved (all remaining params)|  */
    MAV_CMD_IMAGE_STOP_CAPTURE=2001, /* Stop image capture sequence Use NAN for reserved values. |Reserved (Set to 0)| Reserved (all remaining params)|  */
    MAV_CMD_REQUEST_CAMERA_IMAGE_CAPTURE=2002, /* Re-request a CAMERA_IMAGE_CAPTURE packet. Use NAN for reserved values. |Sequence number for missing CAMERA_IMAGE_CAPTURE packet| Reserved (all remaining params)|  */
