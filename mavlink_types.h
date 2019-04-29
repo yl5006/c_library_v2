@@ -26,13 +26,18 @@ namespace mavlink {
 
 #define MAVLINK_CORE_HEADER_LEN 9 ///< Length of core header (of the comm. layer)
 #define MAVLINK_CORE_HEADER_MAVLINK1_LEN 5 ///< Length of MAVLink1 core header (of the comm. layer)
-#define MAVLINK_NUM_HEADER_BYTES (MAVLINK_CORE_HEADER_LEN + 1) ///< Length of all header bytes, including core and stx
+//#define MAVLINK_NUM_HEADER_BYTES (MAVLINK_CORE_HEADER_LEN + 1) ///< Length of all header bytes, including core and stx
+#define MAVLINK_NUM_HEADER_BYTES (MAVLINK_CORE_HEADER_LEN + 2) ///< Length of all header bytes, including core and stx
 #define MAVLINK_NUM_CHECKSUM_BYTES 2
 #define MAVLINK_NUM_NON_PAYLOAD_BYTES (MAVLINK_NUM_HEADER_BYTES + MAVLINK_NUM_CHECKSUM_BYTES)
 
 #define MAVLINK_SIGNATURE_BLOCK_LEN 13
 
 #define MAVLINK_MAX_PACKET_LEN (MAVLINK_MAX_PAYLOAD_LEN + MAVLINK_NUM_NON_PAYLOAD_BYTES + MAVLINK_SIGNATURE_BLOCK_LEN) ///< Maximum packet length
+
+#ifndef MAVLINK_STX1
+#define MAVLINK_STX1 125
+#endif
 
 /**
  * Old-style 4 byte param union
@@ -108,6 +113,7 @@ MAVPACKED(
 typedef struct __mavlink_message {
 	uint16_t checksum;      ///< sent at end of packet
 	uint8_t magic;          ///< protocol magic marker
+	uint8_t magic1;          ///< protocol magic marker
 	uint8_t len;            ///< Length of payload
 	uint8_t incompat_flags; ///< flags that must be understood
 	uint8_t compat_flags;   ///< flags that can be ignored if not understood
@@ -185,6 +191,7 @@ typedef enum {
     MAVLINK_PARSE_STATE_UNINIT=0,
     MAVLINK_PARSE_STATE_IDLE,
     MAVLINK_PARSE_STATE_GOT_STX,
+    MAVLINK_PARSE_STATE_GOT_STX1,
     MAVLINK_PARSE_STATE_GOT_LENGTH,
     MAVLINK_PARSE_STATE_GOT_INCOMPAT_FLAGS,
     MAVLINK_PARSE_STATE_GOT_COMPAT_FLAGS,
